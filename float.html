@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>float</title>
+  <style>
+    .container {
+      width: 400px;
+      padding: 15px;
+      border: 1px dashed #aaa;
+    }
+
+    .container div {
+      width: 100px;
+      height: 100px;
+    }
+
+    .container .box {
+      width: 100px;
+      height: 100px;
+    }
+
+    .container div:nth-child(1) {
+      background-color: green;
+    }
+    .container div:nth-child(2) {
+      background-color: skyblue;
+    }
+  </style>
+</head>
+<body>
+  <!-- Bos1은 떠 있지만 자신의 영역은 차지하고 있다. -->
+  <!-- <div style="width: 150 px; height: 150px; border: 2px solid red;">Box2</div> -->
+  <!-- Box1과 Box2모두 container의 자식요소이지만 벗어나 있는 듯한 형태를 가짐.
+    하지만 Box1과 Box2는 container에 포함되어 있음.
+    문자 "Box1"과 문자 "Box2"는 인라인 요소. -->
+  <!-- <h2>요소를 보통의 흐름에서 벗어나 띄워지게 함</h2>
+  <div class="container">
+    <div style="float: left;">Box1</div>
+    <div style="float: left;">Box2</div>
+  </div> -->
+  <!-- <h2>주변 텍스트나 인라인 요소가 주위를 감싸는 특징이 있음.</h2> -->
+  <!-- <p>태그 내부의 문자는 인라인 요소 -->
+  <!-- <div class="container">
+    <div style="float: left;">Box1</div>
+    <div style="float: right;">Box2</div>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorum cumque debitis doloribus perspiciatis esse nesciunt. Quos quisquam atque sunt earum, vel repudiandae libero similique eos modi, odio laborum, eligendi reiciendis!</p>
+  </div> -->
+  <h2>대부분의 요소에 display 값을 block으로 변경함</h2>
+  <div class="container">
+    <div style="" class="box">Box1</div>
+    <span style="float:left; background-color: skyblue;" class="box">Box2</span>
+  </div>
+</body>
+</html>
