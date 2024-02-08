@@ -4,33 +4,35 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/reset.css" />
-    <title>상단 고정 레이아웃</title>
+    <title>상단 고정 레이아웃(Box-Sizing)</title>
   </head>
   <style>
-    body, html, .wrap {
+    body,
+    html,
+    .wrap {
       height: 100%;
     }
     .wrap {
       min-width: 800px;
-      text-align: cetner;
+      text-align: center;
     }
     .header {
       position: fixed;
       top: 0;
-      right: 0;
       left: 0;
+      right: 0;
       height: 100px;
       background-color: lightgreen;
     }
     .container {
       min-height: 100%;
       margin-top: -100px;
+      padding-top: 200px;
+      box-sizing: border-box;
     }
     .content {
-      max-width: 1200px;
       height: 300px;
       margin: 0 auto;
-      padding-top: 200px;
       background-color: lightsalmon;
     }
     .footer {

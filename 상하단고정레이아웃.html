@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/reset.css" />
-    <title>상단 고정 레이아웃</title>
+    <title>상단, 하단 고정 레이아웃</title>
   </head>
   <style>
     body, html, .wrap {
@@ -16,26 +16,29 @@
     }
     .header {
       position: fixed;
-      top: 0;
-      right: 0;
-      left: 0;
+      left: 0; top: 0; right: 0;
       height: 100px;
-      background-color: lightgreen;
+      background-color: rgb(144, 238, 144, 0.5);
     }
     .container {
       min-height: 100%;
-      margin-top: -100px;
+      max-width: 700px;
+      margin: 0 auto;
+      background-color: lightcyan;
+      padding: 100px 0;
+      box-sizing: border-box;
     }
     .content {
-      max-width: 1200px;
+      /* max-width: 700px; */
       height: 300px;
       margin: 0 auto;
-      padding-top: 200px;
       background-color: lightsalmon;
     }
     .footer {
+      position: fixed;
+      left:0; bottom: 0; right: 0;
       height: 100px;
-      background-color: lightblue;
+      background-color: rgb(173, 216, 230, 0.5);
     }
   </style>
   <body>
