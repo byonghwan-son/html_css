@@ -2,12 +2,18 @@ body {
   font-family: '나눔고딕', NanumGothic, Dotum, '돋움', sans-serif;
 }
 
-body, ul, ol, li, div, a {
+body,
+ul,
+ol,
+li,
+div,
+a {
   margin: 0;
   padding: 0;
 }
 
-ul, ol {
+ul,
+ol {
   list-style: none;
 }
 
@@ -38,4 +44,50 @@ a {
 .menu_item:hover .menu_link,
 .menu_item.active .menu_link {
   color: green;
+}
+
+.menu_item.active .submenu {
+  visibility: visible;
+}
+
+.submenu {
+  visibility: hidden;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  min-width: 700px;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+
+.submenu_item {
+  display: inline-block;
+}
+
+.submenu_link {
+  display: block;
+  padding: 15px 35px;
+  font-size: 17px;
+  line-height: 20px;
+  color: #333;
+}
+
+.submenu_item:hover .submenu_link,
+.submenu_item.active .submenu_link {
+  font-weight: bold;
+  color: green;
+}
+
+.submenu_link span {
+  position: relative;
+}
+
+.submenu_item:hover span:after,
+.submenu_item.active span:after {
+  position: absolute;
+  content: '';
+  right: 0;
+  bottom: -15px;
+  left: 0;
+  border-bottom: 3px solid green;
 }
