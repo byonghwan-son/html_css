@@ -31,6 +31,23 @@ ol {
   line-height: 90px;
 }
 
+.img_wrap {
+  position: relative;
+  width: 200px;
+  height: 134px;
+}
+
+.img_wrap:after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  content: '';
+  border: 1px solid rgba(0, 0, 0. 0.3);
+  background-color: rgba(0, 0, 0, 0.15);
+}
+
 .main_list:after {
   clear: both;
   content: '';
@@ -65,4 +82,38 @@ ol {
 
 .sub_list li:nth-child(5n) {
   margin-right: 0px;
+}
+
+p {
+  width: 200px;
+  background-color: yellow;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.elip1 {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.elip2 {
+  /* 가변 높이 지정 - 글자가 있는 영역의 높이가 
+  40px보다 적은 경우
+  최소 크기로 줄어듬. */
+  max-height: 40px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.elip3 {
+  max-height: 60px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
 }
