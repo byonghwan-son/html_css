@@ -22,8 +22,10 @@
   .box {
     width: 50px;
     height: 50px;
+    position: absolute;
     background-color: white;
     margin: auto auto;
+    display: inline-block;
   }
 </style>
 
@@ -32,7 +34,7 @@
     <h2>DRAG</h2>
     <span id="lblMovement"></span>
     <div id="pnlDrag" class="drag">
-      <!-- <div id="pnlBox" class="box"></div> -->
+       <div id="pnlBox" class="box"></div>
     </div>
   </div>
   <script>
@@ -46,31 +48,48 @@
     var deltaX = 0;
     var deltaY = 0;
 
-    var mouseMoveHandler = (e) => {
-      console.log(`mouse move client x:${e.clientX} y:${e.clientY}`);
-      console.log(`mouse move page x:${e.pageX} y:${e.pageY}`);
-    }
+    lblMovement.innerText = `without boundary bounce => x:${x} y:${y}`
 
-    var mouseUpHandler = (e) => {
-      console.warn(`>>>> mouse up x:${e.clientX} y:${e.clientY}`);
-      drag.removeEventListener('mousemove', mouseMoveHandler);
-    }
-
-    var mouseDown = () => {
-      drag.addEventListener('mousemove', mouseMoveHandler);
-      drag.addEventListener('mouseup', mouseUpHandler, { once: true });
-    }
+    // var mouseMoveHandler = (e) => {
+    //   console.log(`mouse move client x:${e.clientX} y:${e.clientY}`);
+    //   console.log(`mouse move page x:${e.pageX} y:${e.pageY}`);
+    // }
+    //
+    // var mouseUpHandler = (e) => {
+    //   console.warn(`>>>> mouse up x:${e.clientX} y:${e.clientY}`);
+    //   drag.removeEventListener('mousemove', mouseMoveHandler);
+    // }
+    //
+    // var mouseDown = () => {
+    //   drag.addEventListener('mousemove', mouseMoveHandler);
+    //   drag.addEventListener('mouseup', mouseUpHandler, { once: true });
+    // }
 
     var boxMouseDown = (mde) => {
-      const mouseMoveHandler = (me) => {
-        deltaX = me.screenX - mde.screenX;
-        deltaY = me.screenY - mde.screenY;
+      // 마우스 클릭한 위치를 추출
+      let shiftX = Math.round(mde.clientX - box.getBoundingClientRect().left);
+      let shiftY = Math.round(mde.clientY - box.getBoundingClientRect().top);
+      console.log(shiftX, shiftY);
 
-        x = x + deltaX;
-        y = y + deltaY;
+      var clickX = mde.clientX;
+      var clickY = mde.clientY;
+      lblMovement.innerText = `without boundary bounce => x:${clickX} y:${clickY}`
+      // box.style.transform = `translateX(${x}px) translateY(${y}px)`;
+      const mouseMoveHandler = (me) => {
+        // deltaX = me.pageX - mde.pageX;
+        // deltaY = me.pageY - mde.pageY;
+        // console.log(me);
+
+        deltaX = me.clientX - shiftX;
+        deltaY = me.clientY - shiftY;
+
+        x = deltaX;
+        y = deltaY;
 
         lblMovement.innerText = `without boundary bounce => x:${x} y:${y}`
-        box.style.transform = `translateX(${x}px) translateY(${y}px)`;
+        // box.style.transform = `translateX(${x}px) translateY(${y}px)`;
+        box.style.left = x + 'px';
+        box.style.top = y + 'px';
       }
 
       const mouseUpHandler= () => {
@@ -81,8 +100,9 @@
       drag.addEventListener('mouseup', mouseUpHandler, {once: true});
     }
 
-    drag.onmousedown = mouseDown;
-    // drag.onmousedown = boxMouseDown;
+    // drag.onmousedown = mouseDown;
+    box.onmousedown = boxMouseDown;
+    box.ondragstart = () => false;
 
   </script>
 </body>
