@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Temp</title>
+</head>
+<style>
+  
+</style>
+<body>
+  <img id="ball" src="img/ball.svg" alt="축구공" />
+
+
+
+</body>
+<script>
+    var ball = document.getElementById('ball');
+
+    ball.onmousedown = (e) => {
+      ball.style.position = 'absolute';
+      ball.style.zIndex = 1000;
+
+      document.body.append(ball);
+
+      function moveAt(pageX, pageY) {
+        ball.style.left = pageX - ball.offsetWidth / 2 + 'px';
+        ball.style.top = pageY - ball.offsetHeight / 2 + 'px';
+      }
+    }
+</script>
+</html>

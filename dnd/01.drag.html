@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Drag 뽀개기</title>
+</head>
+<style>
+  .container {
+    width: 600px;
+    height: 400px;
+    margin: 100px auto;
+  }
+
+  .drag {
+    width: 100%;
+    height: 100%;
+    background-color: silver;
+  }
+
+  .box {
+    width: 50px;
+    height: 50px;
+    background-color: white;
+    margin: auto auto;
+  }
+</style>
+
+<body>
+  <div id="pnlContainer" class="container">
+    <h2>DRAG</h2>
+    <span id="lblMovement"></span>
+    <div id="pnlDrag" class="drag">
+      <!-- <div id="pnlBox" class="box"></div> -->
+    </div>
+  </div>
+  <script>
+    var container = document.getElementById('pnlContainer');
+    var drag = document.getElementById('pnlDrag');
+    var box = document.getElementById('pnlBox');
+    var lblMovement = document.getElementById('lblMovement');
+
+    var x = 0;
+    var y = 0;
+    var deltaX = 0;
+    var deltaY = 0;
+
+    var mouseMoveHandler = (e) => {
+      console.log(`mouse move client x:${e.clientX} y:${e.clientY}`);
+      console.log(`mouse move page x:${e.pageX} y:${e.pageY}`);
+    }
+
+    var mouseUpHandler = (e) => {
+      console.warn(`>>>> mouse up x:${e.clientX} y:${e.clientY}`);
+      drag.removeEventListener('mousemove', mouseMoveHandler);
+    }
+
+    var mouseDown = () => {
+      drag.addEventListener('mousemove', mouseMoveHandler);
+      drag.addEventListener('mouseup', mouseUpHandler, { once: true });
+    }
+
+    var boxMouseDown = (mde) => {
+      const mouseMoveHandler = (me) => {
+        deltaX = me.screenX - mde.screenX;
+        deltaY = me.screenY - mde.screenY;
+
+        x = x + deltaX;
+        y = y + deltaY;
+
+        lblMovement.innerText = `without boundary bounce => x:${x} y:${y}`
+        box.style.transform = `translateX(${x}px) translateY(${y}px)`;
+      }
+
+      const mouseUpHandler= () => {
+        drag.removeEventListener('mousemove', mouseMoveHandler);
+      }
+
+      drag.addEventListener('mousemove', mouseMoveHandler);
+      drag.addEventListener('mouseup', mouseUpHandler, {once: true});
+    }
+
+    drag.onmousedown = mouseDown;
+    // drag.onmousedown = boxMouseDown;
+
+  </script>
+</body>
+
+</html>
