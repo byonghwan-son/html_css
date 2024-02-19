@@ -15,8 +15,25 @@
 .popup_layer {
   position: relative;
   width: 300px;
-  min-height: 150px;
+  height: 150px;
   padding-bottom: 50px;
+  /*방법 2*/
+  /*
+  margin: auto;
+  position: absolute;
+  top: 0;
+  bottom: 200px;
+  left: 0;
+  right: 0;
+  */
+  /*방법 1*/
+  /*
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -100px;
+  margin-left: -150px;
+  */
   background: #fff;
   /*z-index 는 position: relative or absolute 와 같이 사용해야 한다.*/
   z-index: 10;
