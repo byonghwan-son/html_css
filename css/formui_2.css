@@ -9,7 +9,8 @@ h1 {
 }
 
 .check_form,
-.check_form2 {
+.check_form2,
+.radio_form{
   margin-top: 20px;
 }
 
@@ -76,4 +77,19 @@ h1 {
 
 .check_form2 input:checked + label:before {
   background-image: url('../img/checkbox_on.png');
+}
+
+.radio_form label:before {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin: -2px 5px 0 0;
+  background: url("../img/radio.png") no-repeat 0 0;
+  background-size: 20px;
+  vertical-align: top;
+  content: '';
+}
+
+.radio_form input:checked + label:before {
+  background-image: url('../img/radio_on.png');
 }
