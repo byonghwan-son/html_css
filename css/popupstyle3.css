@@ -10,13 +10,25 @@
   left: 0;
   right: 0;
   bottom: 0;
+  text-align: center;
+}
+
+.popup:after {
+  display: inline-block;
+  vertical-align: middle;
+  width: 0;
+  height: 100%;
+  content: '';
 }
 
 .popup_layer {
   position: relative;
-  width: 300px;
+  display: inline-block;
+  vertical-align: middle;
+  width: 500px;
   min-height: 150px;
   padding-bottom: 50px;
+  margin-right: -4px;
   background: #fff;
   /*z-index 는 position: relative or absolute 와 같이 사용해야 한다.*/
   z-index: 10;

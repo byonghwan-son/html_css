@@ -1,0 +1,95 @@
+body {
+  padding: 50px;
+}
+
+h1 {
+  margin: 50px 0 20px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.check_form,
+.check_form2,
+.radio_form{
+  margin-top: 20px;
+}
+
+.blind {
+  overflow: hidden;
+  position: absolute;
+  clip: rect(0 0 0 0);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+}
+
+/* 체크박스 숨기기(위의 blind 와 동일한 형태)
+.check_form input {
+  position: absolute;
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  opacity: 0;
+}
+*/
+.check_form label {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  width: 36px;
+  height: 21px;
+  border-radius: 10px;
+  background-color: #666;
+  color: transparent;
+}
+
+.check_form label:before {
+  position: absolute;
+  left: 1px;
+  top: 1px;
+  content: '';
+  width: 19px;
+  height: 19px;
+  border-radius: 50%;
+  background-color: #fff;
+}
+
+.check_form input:checked + label {
+  background-color: blue;
+}
+
+.check_form input:checked + label:before {
+  right: 1px;
+  left: auto;
+}
+
+.check_form2 label:before {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin: -1px 5px 0 0;
+  background: url('../img/checkbox.png') no-repeat 0 0;
+  background-size: 20px;
+  vertical-align: top;
+  content: '';
+}
+
+.check_form2 input:checked + label:before {
+  background-image: url('../img/checkbox_on.png');
+}
+
+.radio_form label:before {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin: -2px 5px 0 0;
+  background: url("../img/radio.png") no-repeat 0 0;
+  background-size: 20px;
+  vertical-align: top;
+  content: '';
+}
+
+.radio_form input:checked + label:before {
+  background-image: url('../img/radio_on.png');
+}

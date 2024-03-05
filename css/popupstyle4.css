@@ -12,9 +12,23 @@
   bottom: 0;
 }
 
+.popup_wrap {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+  height: 100%;
+}
+
+.popup_inner {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+
 .popup_layer {
   position: relative;
-  width: 300px;
+  display: inline-block;
+  width: 500px;
   min-height: 150px;
   padding-bottom: 50px;
   background: #fff;
