@@ -1,0 +1,27 @@
+.wrap {
+  margin: 0 auto;
+  /* min-width: 800px; */
+  max-width: 1920px;
+  width: 100%;
+}
+
+.welcome {
+  /* background: url(../image/section_invite.jpg) no-repeat; */
+  /* position: relative; */
+  /* width: 100%;
+  height: 750px; */
+  /* left: 100%; */
+  /* margin-left: -100%; */
+  /* overflow: hidden; */
+  /* overflow: hidden; */
+  margin: 0 auto;
+  width: 100%; 
+  text-align: center; 
+  overflow: hidden; 
+}
+
+.welcome img {
+  position: relative;
+  left: 100%;
+  margin-left: -200%;
+}

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/reset.css" />
+  <!-- <link rel="stylesheet" href="css/promotion.css"> -->
+  <title>Promotion</title>
+</head>
+<style>
+.wrap {
+  margin: 0 auto;
+  /* left와 margin-left는 인터넷에서 아이디어를 얻음 */
+  /* 그런데 어짜피 마진 auto로 해서 정의하면 left: 100%는 의미가 없어짐 */
+  /* left: 100%; */
+  /* margin-left에 calc를 통해서 마이너스 값을 주면 자동으로 처리가 가능해 짐. */
+  margin-left: calc((100% - 1920px) / 2);
+}
+
+.welcome {
+  background: url(./image/section_invite.jpg) no-repeat;
+  height: 720px;
+}
+</style>
+<body>
+  <div class="wrap">
+    <div class="welcome">
+    </div>    
+  </div>
+</body>
+</html>
